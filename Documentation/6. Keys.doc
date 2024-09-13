@@ -1,0 +1,11 @@
+## Primary and Foreign Keys
+
+### Primary Key
+* A unique identifier for each row in a table.
+* There can only be one primary key per table.
+* Primary key columns cannot contain null values.
+
+### Foreign Key
+* A column (or set of columns) in a table that references the primary key of another table.
+* Multiple foreign keys can exist in a table.
+* Foreign key columns can contain duplicate and null values.

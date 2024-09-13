@@ -28,4 +28,31 @@ Primary Key Should Be Different
 	id	name	age
 	1	AMAN	26
 	2	SHRADHA	26
-			
+
+•USE college;
+•DROP TABLE student;
+12:10:08	USE college	0 row(s) affected	0.000 sec
+12:10:12	DROP TABLE student	0 row(s) affected	0.031 sec
+
+•CREATE TABLE student (
+	rollno INT PRIMARY KEY,
+    name VARCHAR(50)
+);
+12:17:08	CREATE TABLE student (  rollno INT PRIMARY KEY,     name VARCHAR(50) )	0 row(s) affected	0.046 sec
+
+Table-Related Queries: Selecting and Viewing All Columns
+SELECT * FROM table_name;
+
+•SELECT * FROM student;
+
+Table-Related Queries: Inserting Data
+
+INSERT INTO table_name (column1, column2, ...)
+VALUES (col_v1, col2_v1),
+       (col1_v2, col2_v2);
+
+•INSERT INTO student (rollno, name)
+VALUES (101, "karan"),
+       (102, "arjun");
+
+•INSERT INTO student VALUES	(104,"shayam");
