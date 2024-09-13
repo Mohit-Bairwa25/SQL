@@ -1,0 +1,30 @@
+## Types of SQL Commands
+
+**DDL (Data Definition Language):** Used to define and modify database structures.
+
+* **CREATE:** Creates new databases, tables, indexes, views, etc.
+* **ALTER:** Modifies existing database objects, such as adding or removing columns.
+* **RENAME:** Changes the name of a database object.
+* **TRUNCATE:** Removes all rows from a table, but retains the table structure.
+* **DROP:** Deletes a database object, such as a table or database.
+
+**DQL (Data Query Language):** Used to retrieve data from a database.
+
+* **SELECT:** Extracts data from one or more tables.
+
+**DML (Data Manipulation Language):** Used to manipulate data within a database.
+
+* **INSERT:** Adds new rows to a table.
+* **UPDATE:** Modifies existing rows in a table.
+* **DELETE:** Removes rows from a table.
+
+**DCL (Data Control Language):** Used to manage user permissions and access control.
+
+* **GRANT:** Assigns privileges to users or roles.
+* **REVOKE:** Removes privileges from users or roles.
+
+**TCL (Transaction Control Language):** Used to manage transactions within a database.
+
+* **START TRANSACTION:** Begins a transaction.
+* **COMMIT:** Saves changes made within a transaction.
+* **ROLLBACK:** Reverts changes made within a transaction.

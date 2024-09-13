@@ -1,0 +1,49 @@
+Password:Mohit.MySQL25
+
+To Create
+•CREATE DATABASE db_name;
+
+CREATE DATABASE temp1;
+then press on Lighting Icon
+13:36:00	CREATE DATABASE temp1	1 row(s) affected	0.015 sec
+
+
+Also Works in small Letters
+•create database db_name;
+Selecet the line then press on Lighting Icon with vertical Dash(Otherwise Throws Error)
+13:36:00	CREATE DATABASE temp1	1 row(s) affected	0.015 sec
+
+
+•CREATE DATABASE db_name;
+
+•CREATE DATABASE college;
+Selecet the line then press on Lighting Icon with vertical Dash(Otherwise Throws Error)
+13:46:12	CREATE DATABASE college	1 row(s) affected	0.015 sec
+
+To Delete
+•DROP DATABASE db_name;
+
+•DROP DATABASE temp1;
+•DROP DATABASE temp2;
+Selecet the line then press on Lighting Icon with vertical Dash(Otherwise Throws Error)
+13:48:51	DROP DATABASE temp1	0 row(s) affected	0.031 sec
+13:49:06	DROP DATABASE temp2	0 row(s) affected	0.015 sec
+
+To Use
+•USE db_name;
+
+•USE college;
+13:52:15	USE college	0 row(s) affected	0.000 sec
+
+To Update
+
+•UPDATE db_name;
+
+•UPDATE student
+SET age = 20
+WHERE id = 1;
+15:16:49	SELECT * FROM student LIMIT 0, 1000	2 row(s) returned	0.000 sec / 0.000 sec
+
+
+
+
