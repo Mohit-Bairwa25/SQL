@@ -43,7 +43,3 @@ To Update
 SET age = 20
 WHERE id = 1;
 15:16:49	SELECT * FROM student LIMIT 0, 1000	2 row(s) returned	0.000 sec / 0.000 sec
-
-
-
-

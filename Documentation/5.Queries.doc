@@ -43,4 +43,3 @@ DROP DATABASE IF EXISTS old_database;
 ```sql
 USE college;
 SHOW TABLES;
-```

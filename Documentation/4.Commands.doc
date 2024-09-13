@@ -28,3 +28,4 @@
 * **START TRANSACTION:** Begins a transaction.
 * **COMMIT:** Saves changes made within a transaction.
 * **ROLLBACK:** Reverts changes made within a transaction.
+
