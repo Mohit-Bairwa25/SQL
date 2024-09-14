@@ -1,0 +1,196 @@
+## SQL Commands
+
+**Creating the Database and Table:**
+
+```sql
+CREATE DATABASE college;
+USE college;
+
+CREATE TABLE student (
+    rollno INT PRIMARY KEY,
+    name VARCHAR(50),
+    marks INT NOT NULL,
+    grade VARCHAR(1),
+    city VARCHAR(20)
+);
+```
+
+**Inserting Data:**
+
+```sql
+INSERT INTO student (rollno, name, marks, grade, city)
+VALUES
+    (101, "anil", 78, "C", "Pune"),
+    (102, "bhumika", 93, "A", "Mumbai"),
+    (103, "chetan", 85, "B", "Mumbai"),
+    (104, "dhruv", 96, "A", "Delhi"),
+    (105, "emanuel", 12, "F", "Delhi"),
+    (106, "farah", 82, "B", "Delhi");
+```
+
+This code will create a database named `college`, create a table named `student` within it, and insert six rows of data into the `student` table.
+
+SELECT * FROM student0;
+
+## SELECT in Detail
+
+**Used to select any data from the database**
+
+**Basic Syntax:**
+
+```sql
+SELECT col1, col2 FROM table_name;
+```
+
+**To Select ALL:**
+
+```sql
+SELECT * FROM table_name;
+```
+•SELECT name, marks FROM student0;
+
+This will Show Only Unique City
+•SELECT DISTINCT city FROM student0;
+
+
+## WHERE Clause
+
+**To define some conditions**
+
+```sql
+SELECT col1, col2 FROM table_name
+WHERE conditions;
+```
+
+**Examples:**
+
+```sql
+•SELECT * FROM student0 WHERE marks > 80;
+•SELECT * FROM student0 WHERE city = "Mumbai";
+•SELECT * FROM student0 WHERE grade="B" AND  city = "Mumbai";
+```
+
+## WHERE Clause
+
+**Using Operators in WHERE**
+
+**Arithmetic Operators:**
+
+* `+`: addition
+* `-`: subtraction
+* `*`: multiplication
+* `/`: division
+* `%`: modulus (remainder)
+
+•SELECT * FROM student0 WHERE marks+10 > 100;
+
+**Comparison Operators:**
+
+* `=`: equal to
+* `!=`: not equal to
+* `>`: greater than
+* `>=`: greater than or equal to
+* `<`: less than
+* `<=`: less than or equal to
+
+**Logical Operators:**
+
+* `AND`: logical AND
+* `OR`: logical OR
+* `NOT`: logical NOT
+* `IN`: checks if a value is within a list
+* `BETWEEN`: checks if a value is within a range
+* `ALL`: checks if all values in a subquery meet a condition
+* `LIKE`: checks for pattern matching
+* `ANY`: checks if any value in a subquery meets a condition
+
+•SELECT * FROM student0 WHERE marks > 80 AND city = "Mumbai";
+•SELECT * FROM student0 WHERE marks > 90 OR city = "Mumbai";
+
+**Bitwise Operators:**
+
+* `&`: Bitwise AND
+* `|`: Bitwise OR
+
+## Operators
+
+**BETWEEN (selects for a given range)**
+
+```sql
+SELECT * FROM student WHERE marks BETWEEN 80 AND 90;
+```
+
+**IN (matches any value in the list)**
+
+```sql
+SELECT * FROM student WHERE city IN ("Delhi", "Mumbai");
+```
+
+**NOT (to negate the given condition)**
+
+```sql
+SELECT * FROM student WHERE city NOT IN ("Delhi", "Mumbai");
+```
+
+## Limit Clause
+
+**Sets an upper limit on the number of (tuples/rows) to be returned**
+
+```sql
+SELECT * FROM student LIMIT 3;
+```
+
+**General Syntax:**
+
+```sql
+SELECT col1, col2 FROM table_name
+LIMIT number;
+```
+
+## ORDER BY Clause
+
+**To sort in ascending (ASC) or descending order (DESC)**
+
+```sql
+SELECT * FROM student
+ORDER BY city ASC;
+```
+
+**General Syntax:**
+
+```sql
+SELECT col1, col2 FROM table_name
+ORDER BY col_name(s) ASC;
+```
+
+**Text extracted from the image:**
+
+**Aggregate Functions**
+
+Aggregate functions perform a calculation on a set of values, and return a single value.
+
+* **COUNT()**
+* **MAX()**
+* **MIN()**
+* **SUM()**
+* **AVG()**
+
+**Example:**
+
+```sql
+SELECT max(marks) FROM student;
+```
+
+**Explanation:**
+
+This query calculates the maximum value of the `marks` column in the `student` table.
+
+**Another Example:**
+
+```sql
+SELECT avg(marks) FROM student;
+```
+
+This query calculates the average value of the `marks` column in the `student` table.
+
+

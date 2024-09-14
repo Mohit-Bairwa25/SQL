@@ -1,0 +1,147 @@
+**Text extracted from the image:**
+
+**Constraints**
+
+SQL constraints are used to specify rules for data in a table.
+
+| Constraint | Description | Example |
+|---|---|---|
+| NOT NULL | Columns cannot have a null value | `col1 int NOT NULL` |
+| UNIQUE | All values in a column are different | `col2 int UNIQUE` |
+| PRIMARY KEY | Makes a column unique and not null, but used only for one column | `id int PRIMARY KEY` |
+
+**Table Creation Example:**
+
+```sql
+CREATE TABLE temp (
+    id int NOT NULL,
+    PRIMARY KEY (id)
+);
+```
+
+**Note:** I couldn't extract the text "colnam" from the image, as it seems to be a placeholder or incomplete word.
+
+•CREATE TABLE temp1 (
+    id INT UNIQUE
+);
+•INSERT INTO temp1 VALUES (101);
+•SELECT * FROM temp1;
+
+If You try this again this will show error because id is UNIQUE
+•INSERT INTO temp1 VALUES (101);
+11:58:34	INSERT INTO temp1 VALUES (101)	Error Code: 1062. Duplicate entry '101' for key 'temp1.id'	0.000 sec
+
+Three Cases for Primary Key Usage
+1. Single-column primary key (using id):
+
+•CREATE TABLE temp1 (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT,
+    city VARCHAR(20)
+);
+
+2. Single-column primary key (using name):
+
+•CREATE TABLE temp1 (
+    id INT,
+    name VARCHAR(50),
+    age INT,
+    city VARCHAR(20),
+    PRIMARY KEY (name)
+);
+
+3. Composite primary key (using both id and name):
+
+•CREATE TABLE temp1 (
+    id INT,
+    name VARCHAR(50),
+    age INT,
+    city VARCHAR(20),
+    PRIMARY KEY (id, name)
+);
+
+FOREIGN KEY
+
+Purpose: Prevents actions that would destroy links between tables.3
+
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    cust_id INT,
+    FOREIGN KEY (cust_id) REFERENCES customers(id)
+);
+
+Scenario with Two Tables:
+
+Let's assume we have two tables:
+students: Contains information about students.
+teachers: Contains information about teachers.
+We want to establish a relationship between these tables, where each student can be assigned to multiple teachers, and each teacher can have multiple students.
+Creating the Tables:
+
+CREATE TABLE students (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(50)
+);
+
+CREATE TABLE teachers (
+    teacher_id INT PRIMARY KEY,
+    name VARCHAR(50)
+);
+
+Creating a Join Table:
+
+To represent the many-to-many relationship between students and teachers, we'll create a join table:
+
+SQL
+CREATE TABLE student_teacher (
+    student_id INT,
+    teacher_id INT,
+    FOREIGN KEY (student_id) REFERENCES students(student_id),
+    FOREIGN KEY (teacher_id) REFERENCES teachers(teacher_id)
+);
+
+Explanation:
+
+The student_teacher table has two columns: student_id and teacher_id.
+The student_id column references the student_id column in the students table. This ensures that each student_id in the student_teacher table matches an existing student.
+The teacher_id column references the teacher_id column in the teachers table. This ensures that each teacher_id in the student_teacher table matches an existing teacher.
+Now, you can insert data into these tables to represent the relationships between students and teachers. For example:
+
+DEFAULT
+
+Purpose: Sets a default value for a column.
+
+column_name data_type DEFAULT value
+
+salary INT DEFAULT 25000
+
+•CREATE TABLE emp (
+id INT,
+salary INT DEFAULT 25000);
+
+•INSERT INTO emp(id) VALUES (101);
+•SELECT * FROM emp;
+
+Constraints: CHECK
+Purpose: Limits the values allowed in a column.
+
+Syntax:
+•CREATE TABLE table_name (
+    column1 data_type CHECK (condition),
+    column2 data_type,
+    ...
+);
+
+•CREATE TABLE city (
+    id INT PRIMARY KEY,
+    city VARCHAR(50),
+    age INT,
+    CONSTRAINT age_check CHECK (age >= 18 AND city = "Delhi")
+);
+
+Another Example:
+
+•CREATE TABLE newTab (
+    age INT CHECK (age >= 18)
+);
