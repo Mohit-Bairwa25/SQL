@@ -193,4 +193,46 @@ SELECT avg(marks) FROM student;
 
 This query calculates the average value of the `marks` column in the `student` table.
 
+## Group By Clause
+
+Groups rows that have the same values into summary rows.
+It collects data from multiple records and groups the result by one or more column.
+
+*Generally we use group by with some aggregation function.
+
+**Count number of students in each city**
+
+```sql
+SELECT city, count(name)
+FROM student
+GROUP BY city;
+```
+SELECT city,rollno, count(name)
+FROM student0
+GROUP BY city,rollno;
+
+
+## HAVING Clause
+
+**Similar to WHERE, applies conditions on rows.**
+
+**Used when you want to apply conditions after grouping.**
+
+**Example:**
+
+**Count the number of students in each city where the maximum marks are greater than 90:**
+
+```sql
+SELECT count(name), city
+FROM student
+GROUP BY city
+HAVING max(marks) > 90;
+```
+
+SELECT count(name), city
+FROM student0
+WHERE max(marks) > 90
+GROUP BY city;
+
+this will throw an error:1111
 

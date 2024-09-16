@@ -1,0 +1,17 @@
+General Order of SQL Queries
+SELECT column(s)
+FROM table_name
+WHERE condition
+GROUP BY column(s)
+HAVING condition
+ORDER BY column(s) ASC;
+
+SELECT: Specifies the columns to be retrieved.
+FROM: Specifies the table from which to retrieve data.
+WHERE: Filters rows based on a condition.
+GROUP BY: Groups rows based on specified columns.
+HAVING: Filters groups based on a condition.
+ORDER BY: Sorts the results based on specified columns.
+
+Where ROWS pe condition lagata hai,
+HAVING GROUP pe condition lagata hai

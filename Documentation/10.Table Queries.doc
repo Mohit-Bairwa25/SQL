@@ -1,0 +1,58 @@
+## UPDATE Statement
+
+**Used to modify existing rows in a table.**
+
+**Syntax:**
+
+```sql
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+```
+
+**Explanation:**
+
+- **`UPDATE table_name`**: Specifies the table you want to update.
+- **`SET column1 = value1, column2 = value2, ...`**: Lists the columns and their new values.
+- **`WHERE condition`**: Specifies the condition that rows must meet to be updated.
+
+**Example:**
+
+```sql
+UPDATE student
+SET grade = "0"
+WHERE grade = "A";
+```
+
+This query will change the grade of all students with a grade of "A" to "0".
+
+This will throw an ERROR
+13:35:33	UPDATE student SET grade = "0" WHERE grade = "A"	Error Code: 1175. You are using safe update mode and you tried to update a table without a WHERE that uses a KEY column.  To disable safe mode, toggle the option in Preferences -> SQL Editor and reconnect.	0.016 sec
+
+You have to turn off safe mode
+SET SQL_SAFE_UPDATES=0;
+
+## DELETE Statement
+
+**Used to delete existing rows from a table.**
+
+**Syntax:**
+
+```sql
+DELETE FROM table_name
+WHERE condition;
+```
+
+**Explanation:**
+
+- **`DELETE FROM table_name`**: Specifies the table from which you want to delete rows.
+- **`WHERE condition`**: Specifies the condition that rows must meet to be deleted.
+
+**Example:**
+
+```sql
+DELETE FROM student
+WHERE marks < 33;
+```
+
+This query will delete all rows from the `student` table where the `marks` column is less than 33.
