@@ -1,0 +1,150 @@
+## Table-Related Queries: Altering the Schema
+
+**ALTER (to change the schema):**
+
+* **ADD Column:**
+  ```sql
+  ALTER TABLE table_name
+  ADD COLUMN column_name datatype constraint;
+  ```
+•ALTER TABLE student
+ADD COLUMN age INT;
+
+* **DROP Column:**
+  ```sql
+  ALTER TABLE table_name
+  DROP COLUMN column_name;
+  ```
+•ALTER TABLE student
+DROP COLUMN age;
+
+* **RENAME Table:**
+  ```sql
+  ALTER TABLE table_name
+  RENAME TO new_table_name;
+  ```
+
+**Explanation:**
+
+- **`ALTER TABLE table_name`**: Specifies the table you want to modify.
+- **`ADD COLUMN column_name datatype constraint`**: Adds a new column to the table with the specified name, data type, and constraints.
+- **`DROP COLUMN column_name`**: Removes the specified column from the table.
+- **`RENAME TO new_table_name`**: Renames the table to a new name.
+
+## Table-Related Queries: Altering Columns
+
+**CHANGE Column (rename):**
+
+```sql
+ALTER TABLE table_name
+CHANGE COLUMN old_name new_name new_datatype new_constraint;
+```
+
+**Explanation:**
+
+- Renames a column and optionally modifies its data type or constraints.
+
+**MODIFY Column (modify datatype/constraint):**
+
+```sql
+ALTER TABLE table_name
+MODIFY col_name new_datatype new_constraint;
+```
+
+**Explanation:**
+
+- Modifies the data type or constraints of an existing column.
+
+**Note:**
+
+- The `CHANGE COLUMN` and `MODIFY COLUMN` statements are interchangeable.
+- You can use these statements to add, remove, or modify constraints, such as `NOT NULL`, `UNIQUE`, `PRIMARY KEY`, or `FOREIGN KEY`.
+
+
+I can only extract the text and identify some objects and public figures in this image.
+
+**Text from the image:**
+
+**Table-Related Queries**
+
+**ALTER (to change the schema)**
+
+* **ADD Column:**
+  ```sql
+  ALTER TABLE student
+  ADD COLUMN age INT NOT NULL DEFAULT 19;
+  ```
+* **DROP Column:**
+  ```sql
+  ALTER TABLE student
+  DROP COLUMN stu_age;
+  ```
+* **MODIFY Column:**
+  ```sql
+  ALTER TABLE student
+  MODIFY age VARCHAR(2);
+  ```
+  After this if you will try this it will show you an error
+
+•INSERT INTO student
+(rollno, name, marks, age)
+VALUES
+(107, "gargi", 68, 100);
+16:12:44	INSERT INTO student (rollno, name, marks, age) VALUES (107, "gargi", 68, 100)	Error Code: 1406. Data too long for column 'age' at row 1	0.000 sec
+
+
+* **CHANGE Column (rename):**
+  ```sql
+  ALTER TABLE student
+  CHANGE age stu_age INT;
+  ```
+•INSERT INTO student
+(rollno, name, marks, stu_age)
+VALUES
+(107, "gargi", 68, 100);
+
+Now this will work
+
+
+Rename table
+
+ALTER TABLE student
+RENAME TO stu;
+
+**Explanation:**
+
+These SQL statements demonstrate how to modify the schema of a table named `student`:
+
+- **Adding a column:** Adds a new column named `age` of type INT, with a default value of 19, and the `NOT NULL` constraint.
+- **Dropping a column:** Removes the column named `stu_age` from the table.
+- **Modifying a column:** Changes the data type of the `age` column to VARCHAR(2).
+- **Renaming a column:** Renames the `age` column to `stu_age` and optionally changes its data type.
+
+## TRUNCATE Table
+
+**Purpose:** Deletes all rows from a table, but retains the table structure.
+
+**Syntax:**
+
+```sql
+TRUNCATE TABLE table_name;
+```
+
+**Explanation:**
+
+- **`TRUNCATE TABLE table_name`**: Specifies the table whose data you want to delete.
+
+**Note:**
+
+- `TRUNCATE` is generally faster than `DELETE` because it doesn't log individual row deletions.
+- `TRUNCATE` cannot be rolled back, while `DELETE` can be rolled back.
+- `TRUNCATE` cannot be used on tables with foreign key constraints.
+
+**Example:**
+
+```sql
+TRUNCATE TABLE student;
+```
+
+This query will delete all rows from the `student` table, leaving the table structure intact.
+

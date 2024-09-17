@@ -1,0 +1,232 @@
+Inner Join
+Returns recors that have matching values in both tables
+
+Syantx
+SELECT column(s)
+FROM tableA
+INNER JOIN tableB
+ON tableA.col_name = tableB.col_name;
+
+•CREATE DATABASE college;
+USE college;
+
+•CREATE TABLE student (
+    id INT PRIMARY KEY,
+    name VARCHAR(50)
+);
+
+•INSERT INTO student (id, name)
+VALUES
+    (101, "adam"),
+    (102, "bob"),
+    (103, "casey");
+
+•CREATE TABLE course (
+    id INT PRIMARY KEY,
+    course VARCHAR(50)   
+
+);
+
+•INSERT INTO course (id, course)
+VALUES
+    (102, "english"),
+    (105, "math"),
+    (103, "science"),
+    (107, "computer science");
+
+•SELECT * FROM student;
+•SELECT * FROM course;
+
+•SELECT *
+FROM student
+INNER JOIN course
+ON student.id = course.id;
+
+How to Use Alias or Alternate Name
+
+
+•SELECT *
+FROM student as s
+INNER JOIN course as c
+ON s.id = c.id;
+
+## Left Join
+
+**Returns all records from the left table, and the matched records from the right table**
+
+**Syntax**
+
+```sql
+SELECT column(s)
+FROM tableA
+LEFT JOIN tableB
+ON tableA.col_name = tableB.col_name;
+```
+•SELECT *
+FROM student as s
+LEFT JOIN course as c
+ON s.id = c.id;
+
+## Right Join
+
+**Returns all records from the right table, and the matched records from the left table**
+
+**Syntax**
+
+```sql
+SELECT column(s)
+FROM tableA
+RIGHT JOIN tableB
+ON tableA.col_name = tableB.col_name;
+```
+•SELECT *
+FROM student as s
+RIGHT JOIN course as c
+ON s.id = c.id;
+
+
+## Full Join
+
+**Returns all records when there is a match in either left or right table**
+
+**Syntax in MySQL**
+
+```sql
+SELECT * FROM student AS a
+LEFT JOIN course AS b
+ON a.id = b.id
+UNION
+SELECT * FROM student AS a
+RIGHT JOIN course AS b
+ON a.id = b.id;
+```
+
+**Explanation:**
+
+- The `LEFT JOIN` part returns all rows from the `student` table (left table) and the matched rows from the `course` table (right table).
+- The `RIGHT JOIN` part returns all rows from the `course` table (right table) and the matched rows from the `student` table (left table).
+- The `UNION` operator combines the results of both `LEFT JOIN` and `RIGHT JOIN`, providing all records from both tables, including those that have matches in either table.
+
+**Note:** MySQL doesn't have a direct `FULL JOIN` operator, so this combination of `LEFT JOIN`, `RIGHT JOIN`, and `UNION` is used to achieve the same functionality.
+
+## Left Exclusive Join
+
+**Returns records from the left table that have no matching records in the right table.**
+
+**Syntax**
+
+```sql
+SELECT *
+FROM tableA AS a
+LEFT JOIN tableB AS b
+ON a.id = b.id
+WHERE b.id IS NULL;
+```
+
+•SELECT *
+FROM student AS a
+LEFT JOIN course AS b
+ON a.id = b.id
+WHERE b.id IS NULL;
+
+## Right Exclusive Join
+
+**Returns records from the right table that have no matching records in the left table.**
+
+**Syntax**
+
+```sql
+SELECT *
+FROM tableA AS a
+RIGHT JOIN tableB AS b
+ON a.id = b.id
+WHERE a.id IS NULL;
+```
+
+**Explanation:**
+
+- The `LEFT JOIN` part returns all rows from the left table (`student`) and the matched rows from the right table (`course`).
+- The `WHERE b.id IS NULL` condition filters the results to only include rows where there is no match in the right table.
+- The `RIGHT JOIN` part is similar, but the `WHERE` condition checks for `a.id IS NULL` to get the exclusive records from the right table.
+
+Full Exclusive Join
+
+SELECT a.id AS student_id, a.name, b.id AS course_id, b.course
+FROM student AS a
+LEFT JOIN course AS b
+ON a.id = b.id
+WHERE b.id IS NULL
+UNION
+SELECT a.id AS student_id, a.name, b.id AS course_id, b.course
+FROM student AS a
+RIGHT JOIN course AS b
+ON a.id = b.id
+WHERE a.id IS NULL;
+
+SELF Join
+## Self Join
+
+**A regular join but the table is joined with itself.**
+
+**Syntax**
+
+```sql
+SELECT column(s)
+FROM table AS a
+JOIN table AS b
+ON a.col_name = b.col_name;
+```
+•CREATE TABLE employee(
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    manager_id INT
+);
+
+•INSERT INTO employee (id, name, manager_id)
+VALUES
+    (101, "adam", 103),
+    (102, "bob", 104),
+    (103, "casey", NULL),
+    (104, "donald", 103);
+
+•SELECT * FROM employee;
+
+•SELECT *
+FROM employee as a
+JOIN employee as b
+ON a.id = b.manager_id;
+
+•SELECT a.name as manager_name, b.name
+FROM employee as a
+JOIN employee as b
+ON a.id = b.manager_id;
+
+**Union**
+
+It is used to combine the result-set of two or more SELECT statements.
+Gives UNIQUE records.
+
+To use it:
+
+* every SELECT should have the same number of columns
+* columns must have similar data types
+* columns in every SELECT should be in the same order
+
+**Syntax**
+
+```sql
+SELECT column(s) FROM tableA
+UNION
+SELECT column(s) FROM tableB
+```
+This Will Give Unique values
+
+•SELECT name FROM employee
+UNION
+SELECT name FROM employee;
+
+This will Give Duplicate values
+
+•SELECT name FROM employee
+UNION ALL
+SELECT name FROM employee;
